@@ -13,7 +13,8 @@
       "src/twoSum.php",
       "src/reverseString.php",
       "src/hasPairWithSum.php",
-      "src/containsCommonItem.php"
+      "src/containsCommonItem.php",
+      "src/containsDuplicate.php"
     ]
   }
 }

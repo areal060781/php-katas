@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class reverseString extends TestCase
+class ReverseString extends TestCase
 {
     /** @test */
     public function it_should_reverse_a_string()
