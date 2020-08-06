@@ -25,5 +25,12 @@ Output: true
  */
 function containsDuplicate(array $nums): bool
 {
-
+    $newArray = [];
+    foreach ($nums as $num){
+        if (isset($newArray[$num])){
+            return true;
+        }
+        $newArray[$num] = true;
+    }
+    return false;
 }
