@@ -14,7 +14,8 @@
       "src/reverseString.php",
       "src/hasPairWithSum.php",
       "src/containsCommonItem.php",
-      "src/containsDuplicate.php"
+      "src/containsDuplicate.php",
+      "src/rotateArray.php"
     ]
   }
 }
