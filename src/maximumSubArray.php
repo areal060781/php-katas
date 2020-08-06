@@ -37,6 +37,10 @@ function maximumSumSubarray(array $nums): int
     return $best_sum;
 }
 
+/**
+ * @param array $nums
+ * @return array
+ */
 function maximumSubarray(array $nums): array
 {
     $best_sum = 0;  # or: float('-inf')
@@ -59,6 +63,10 @@ function maximumSubarray(array $nums): array
     return [$best_sum, $best_start, $best_end];
 }
 
+/**
+ * @param array $nums
+ * @return array
+ */
 function maximumSubarray2(array $nums): array
 {
     $max_so_far = PHP_INT_MIN;

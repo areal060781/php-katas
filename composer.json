@@ -10,7 +10,10 @@
       "src/maximumSubArray.php",
       "src/moveZeroes.php",
       "src/mergedSortedArray.php",
-      "src/twoSum.php"
+      "src/twoSum.php",
+      "src/reverseString.php",
+      "src/hasPairWithSum.php",
+      "src/containsCommonItem.php"
     ]
   }
 }

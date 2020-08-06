@@ -1,7 +1,14 @@
 <?php
 
-/** Does not work properly */
-function mergedSortedArrayUdemy(array $array1, array $array2)
+/**
+ * Udemy solution
+ * Does not work properly
+ *
+ * @param array $array1
+ * @param array $array2
+ * @return array
+ */
+function mergedSortedArrayUdemy(array $array1, array $array2): array
 {
     if (empty($array1)) {
         return $array2;
@@ -31,7 +38,12 @@ function mergedSortedArrayUdemy(array $array1, array $array2)
     return $mergedArray;
 }
 
-function mergedSortedArray(array $array1, array $array2)
+/**
+ * @param array $array1
+ * @param array $array2
+ * @return array
+ */
+function mergedSortedArray(array $array1, array $array2): array
 {
     if (empty($array1)) {
         return $array2;
@@ -60,7 +72,12 @@ function mergedSortedArray(array $array1, array $array2)
     return $mergedArray;
 }
 
-function mergedSortedArrayPointers($array1, $array2)
+/**
+ * @param $array1
+ * @param $array2
+ * @return array
+ */
+function mergedSortedArrayPointers($array1, $array2): array
 {
     if (empty($array1)) {
         return $array2;

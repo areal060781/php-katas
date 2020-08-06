@@ -1,6 +1,10 @@
 <?php
-
-function reverseString($string)
+/**
+ * Alternative to strrev($string)
+ * @param $string
+ * @return string
+ */
+function reverseString(string $string): string
 {
     $long = strlen($string);
     $newString = '';
@@ -9,7 +13,3 @@ function reverseString($string)
     }
     return $newString;
 }
-
-$string = "La casa del lago";
-print(reverseString($string));
-print(strrev($string));

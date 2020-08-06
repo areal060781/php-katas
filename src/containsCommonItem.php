@@ -1,5 +1,10 @@
 <?php
-// Naive solution O(n^2)
+/**
+ *  Naive solution O(n^2)
+ * @param array $arr1
+ * @param array $arr2
+ * @return bool
+ */
 function containsCommonItem1(array $arr1, array $arr2): bool
 {
     for ($i = 0; $i < count($arr1); $i++) {
@@ -12,7 +17,13 @@ function containsCommonItem1(array $arr1, array $arr2): bool
     return false;
 }
 
-// O(n)
+/**
+ * O(n)
+ *
+ * @param array $arr1
+ * @param array $arr2
+ * @return bool
+ */
 function containsCommonItem2(array $arr1, array $arr2): bool
 {
     $flipped = array_flip($arr1);
@@ -25,6 +36,3 @@ function containsCommonItem2(array $arr1, array $arr2): bool
     return false;
 
 }
-
-$r = containsCommonItem2(['a', 'b', 'c', 'x'], ['z', 'y', 'a']);
-print($r . "\n");
