@@ -71,7 +71,7 @@ function rotateArrayF(array $nums, int $places): array
 
 function reverse(array &$arr, int $start, int $end)
 {
-    while($start < $end) {
+    while ($start < $end) {
         $temp = $arr[$start];
 
         $arr[$start] = $arr[$end];
@@ -87,6 +87,7 @@ function reverse(array &$arr, int $start, int $end)
 function rotateArray(array $arr, int $k)
 {
     $n = count($arr);
+    $k %= $n;
 
     # reverse the whole array
     reverse($arr, 0, $n - 1);
