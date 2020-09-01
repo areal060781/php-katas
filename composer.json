@@ -6,6 +6,9 @@
     "classmap": [
       "src/"
     ],
+    "psr-4": {
+      "App\\": "src/"
+    },
     "files": [
       "src/maximumSubArray.php",
       "src/moveZeroes.php",
@@ -15,7 +18,9 @@
       "src/hasPairWithSum.php",
       "src/containsCommonItem.php",
       "src/containsDuplicate.php",
-      "src/rotateArray.php"
+      "src/rotateArray.php",
+      "src/Node.php",
+      "src/LinkedList.php"
     ]
   }
 }
