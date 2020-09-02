@@ -13,11 +13,11 @@ class DoubleNode
      */
     public int $value;
 
-    /** @var Node|null  */
-    public ?Node $next;
+    /** @var DoubleNode|null  */
+    public ?DoubleNode $next;
 
-    /** @var Node|null  */
-    public ?Node $previous;
+    /** @var DoubleNode|null  */
+    public ?DoubleNode $previous;
 
     public function __construct($value)
     {
