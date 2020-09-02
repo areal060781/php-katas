@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * Class LinkedList
+ * Class SingleLinkedList
  * Creates a single linked list
  *
  * @package App
@@ -22,7 +22,7 @@ namespace App;
  *      }
  * }
  */
-class LinkedList
+class SingleLinkedList
 {
     /**
      * @var Node
