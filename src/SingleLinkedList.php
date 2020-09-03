@@ -127,6 +127,30 @@ class SingleLinkedList
         return $list;
     }
 
+    public function reverse()
+    {
+        if (!$this->head->next) {
+            return $this->head;
+        }
+
+        $first = $this->head;
+        $second = $first->next;
+
+        $this->tail = $this->head;
+
+        while ($second) {
+            $temp = $second->next;
+            $second->next = $first;
+            $first = $second;
+            $second = $temp;
+        }
+
+        $this->tail->next = null;
+        $this->head = $first;
+
+        return $this;
+    }
+
     protected function getNode($index)
     {
         $i = 0;
