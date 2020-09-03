@@ -24,8 +24,9 @@ class DoubleLinkedList
     public function append($value)
     {
         $newNode = new DoubleNode($value);
-        $newNode->previous = $this->tail; //
+        $newNode->previous = $this->tail;
         $this->tail->next = $newNode;
+
         $this->tail = $newNode;
         $this->length++;
 
@@ -35,8 +36,9 @@ class DoubleLinkedList
     public function prepend($value)
     {
         $newNode = new DoubleNode($value);
-        $this->head->previous = $newNode; //
+        $this->head->previous = $newNode;
         $newNode->next = $this->head;
+
         $this->head = $newNode;
         $this->length++;
 
@@ -55,14 +57,14 @@ class DoubleLinkedList
 
         $newNode = new DoubleNode($value);
 
-        $prevNode = $this->getNode($index - 1);
+        $leader = $this->getNode($index - 1);
+        $follower = $leader->next;
 
-        $nodeToDisplace = $prevNode->next; // or tail ?
-        $newNode->previous = $nodeToDisplace->previous; //
-        $nodeToDisplace->previous = $newNode; //
+        $newNode->previous = $leader;
+        $newNode->next = $follower;
 
-        $newNode->next = $prevNode->next;
-        $prevNode->next = $newNode;
+        $leader->next = $newNode;
+        $follower->previous = $newNode;
 
         $this->length++;
 
@@ -71,16 +73,30 @@ class DoubleLinkedList
 
     public function remove($index)
     {
-        if ($index == 0) {
-            $this->head->next->previous = null; //
-            $this->head = $this->head->next;
-        } else {
-            $prevNode = $this->getNode($index - 1);
-            $nodeToRemove = $prevNode->next;
-            $nodeToDisplace = $nodeToRemove->next; //
-            $nodeToDisplace->previous = $prevNode; //
+        if ($this->length == 1) {
+            return $this;
+        }
 
-            $prevNode->next = $nodeToRemove->next;
+        if ($index == 0) {
+            $follower = $this->head->next;
+            $follower->previous = null;
+            $this->head = $follower;
+
+            if ($this->length == 2) {
+                $this->tail = $this->head;
+            }
+        } elseif ($index == $this->length - 1) {
+            $leader = $this->getNode($index - 1);
+            $leader->next = null;
+
+            $this->tail = $leader;
+        } else {
+            $leader = $this->getNode($index - 1);
+            $nodeToRemove = $leader->next;
+            $follower = $nodeToRemove->next;
+
+            $follower->previous = $leader;
+            $leader->next = $follower;
         }
 
         $this->length--;

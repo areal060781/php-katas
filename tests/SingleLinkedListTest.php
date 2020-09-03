@@ -34,4 +34,16 @@ class SingleLinkedListTest extends TestCase
         $myLinkedList->remove(0);
         $this->assertEquals([2, 20, 1, 10, 16, 18], $myLinkedList->printList());
     }
+
+    /** @test */
+    public function it_remove_last_element()
+    {
+        $myLinkedList = new App\SingleLinkedList(10);
+
+        $myLinkedList->append(5)
+            ->append(16)
+            ->remove(2);
+
+        $this->assertEquals([10, 5], $myLinkedList->printList());
+    }
 }

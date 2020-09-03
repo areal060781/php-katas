@@ -45,6 +45,7 @@ class SingleLinkedList
     {
         $newNode = new Node($value);
         $this->tail->next = $newNode;
+
         $this->tail = $newNode;
         $this->length++;
 
@@ -55,22 +56,11 @@ class SingleLinkedList
     {
         $newNode = new Node($value);
         $newNode->next = $this->head;
+
         $this->head = $newNode;
         $this->length++;
 
         return $this;
-    }
-
-    public function printList()
-    {
-        $list = [];
-        $currentNode = $this->head;
-        while ($currentNode != null) {
-            $list[] = $currentNode->value;
-            $currentNode = $currentNode->next;
-        }
-
-        return $list;
     }
 
     public function insert($index, $value)
@@ -85,10 +75,10 @@ class SingleLinkedList
 
         $newNode = new Node($value);
 
-        $prevNode = $this->getNode($index - 1);
+        $leader = $this->getNode($index - 1);
 
-        $newNode->next = $prevNode->next;
-        $prevNode->next = $newNode;
+        $newNode->next = $leader->next;
+        $leader->next = $newNode;
 
         $this->length++;
 
@@ -97,18 +87,44 @@ class SingleLinkedList
 
     public function remove($index)
     {
-        if ($index == 0) {
-            $this->head = $this->head->next;
-        } else {
-            $prevNode = $this->getNode($index - 1);
-            $nodeToRemove = $prevNode->next;
+        if ($this->length == 1) {
+            return $this;
+        }
 
-            $prevNode->next = $nodeToRemove->next;
+        if ($index == 0) {
+            $follower = $this->head->next;
+            $this->head = $follower;
+
+            if ($this->length == 2) {
+                $this->tail = $this->head;
+            }
+        } elseif ($index == $this->length - 1) {
+            $leader = $this->getNode($index - 1);
+            $leader->next = null;
+
+            $this->tail = $leader;
+        } else {
+            $leader = $this->getNode($index - 1);
+            $nodeToRemove = $leader->next;
+
+            $leader->next = $nodeToRemove->next;
         }
 
         $this->length--;
 
         return $this;
+    }
+
+    public function printList()
+    {
+        $list = [];
+        $currentNode = $this->head;
+        while ($currentNode != null) {
+            $list[] = $currentNode->value;
+            $currentNode = $currentNode->next;
+        }
+
+        return $list;
     }
 
     protected function getNode($index)

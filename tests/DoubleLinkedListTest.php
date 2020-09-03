@@ -42,4 +42,16 @@ class DoubleLinkedListTest extends TestCase
         $this->assertEquals([16, 4, 5, 10], $myLinkedList->printBackward());
 
     }
+
+    /** @test */
+    public function it_remove_last_element()
+    {
+        $myLinkedList = new App\DoubleLinkedList(10);
+
+        $myLinkedList->append(5)
+            ->append(16)
+            ->remove(2);
+
+        $this->assertEquals([10, 5], $myLinkedList->printForward());
+    }
 }
