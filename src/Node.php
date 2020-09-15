@@ -9,9 +9,9 @@ namespace App;
 class Node
 {
     /**
-     * @var int $value
+     * @var $value
      */
-    public int $value;
+    public $value;
 
     /** @var Node|null  */
     public ?Node $next;
