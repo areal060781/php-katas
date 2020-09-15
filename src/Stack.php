@@ -11,27 +11,36 @@ namespace App;
  */
 class Stack
 {
-    protected $top = null;
-    protected $bottom = null;
-    protected $lenght = 0;
+    /** @var Node|null */
+    protected ?Node $top = null;
+    /** @var Node|null */
+    protected ?Node $bottom = null;
+    protected int $length = 0;
 
     public function __constructor()
     {
         $this->top = null;
         $this->bottom = null;
-        $this->lenght = 0;
+        $this->length = 0;
     }
 
+    /**
+     * @return Node|null
+     */
     public function peek()
     {
         return $this->top;
     }
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function push($value)
     {
         $newNode = new Node($value);
 
-        if ($this->lenght == 0) {
+        if ($this->length == 0) {
             $this->bottom = $newNode;
             $this->top = $this->bottom;
         } else {
@@ -39,27 +48,33 @@ class Stack
             $this->top = $newNode;
         }
 
-        $this->lenght++;
+        $this->length++;
         return $this;
     }
 
+    /**
+     * @return $this|null
+     */
     public function pop()
     {
-        if ($this->top == null){
+        if ($this->top == null) {
             return null;
         }
 
         $this->top = $this->top->next;
-        $this->lenght--;
+        $this->length--;
 
-        if ($this->lenght == 0) {
+        if ($this->length == 0) {
             $this->bottom = null;
-            $this->top =null;
+            $this->top = null;
         }
 
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function print()
     {
         $list = [];
