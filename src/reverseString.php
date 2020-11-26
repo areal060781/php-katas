@@ -13,3 +13,10 @@ function reverseString(string $string): string
     }
     return $newString;
 }
+
+function reverseStringRecursive(string $string): string
+{
+    if (strlen($string) == 1)
+        return $string;
+    return $string[-1] . reverseStringRecursive(substr($string, 0, -1));
+}
