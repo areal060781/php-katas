@@ -20,7 +20,8 @@
       "src/containsDuplicate.php",
       "src/rotateArray.php",
       "src/Node.php",
-      "src/SingleLinkedList.php"
+      "src/SingleLinkedList.php",
+      "src/bubbleSort.php"
     ]
   }
 }
